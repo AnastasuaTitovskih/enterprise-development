@@ -1,14 +1,14 @@
-using BikeRental.Domain;
+п»їusing BikeRental.Domain;
 
 namespace BikeRental.Test;
 
 /// <summary>
-/// Тесты бизнес-логики проката велосипедов.
+/// РўРµСЃС‚С‹ Р±РёР·РЅРµСЃ-Р»РѕРіРёРєРё РїСЂРѕРєР°С‚Р° РІРµР»РѕСЃРёРїРµРґРѕРІ.
 /// </summary>
 public class BikeRentalTests(BikeDataFixture fixture) : IClassFixture<BikeDataFixture>
 {
     /// <summary>
-    /// Вывести информацию обо всех спортивных велосипедах.
+    /// Р’С‹РІРµСЃС‚Рё РёРЅС„РѕСЂРјР°С†РёСЋ РѕР±Рѕ РІСЃРµС… СЃРїРѕСЂС‚РёРІРЅС‹С… РІРµР»РѕСЃРёРїРµРґР°С….
     /// </summary>
     [Fact]
     public void GetSportBikes_WhenFilteringByMountainAndRoad_ReturnsFourSpecificBikes()
@@ -23,7 +23,7 @@ public class BikeRentalTests(BikeDataFixture fixture) : IClassFixture<BikeDataFi
     }
 
     /// <summary>
-    /// Вывести топ моделей по прибыли и длительности.
+    /// Р’С‹РІРµСЃС‚Рё С‚РѕРї РјРѕРґРµР»РµР№ РїРѕ РїСЂРёР±С‹Р»Рё Рё РґР»РёС‚РµР»СЊРЅРѕСЃС‚Рё.
     /// </summary>
     [Fact]
     public void GetTopModels_WhenSortedByProfitAndDuration_ReturnsElectroBoltAsLeader()
@@ -56,7 +56,7 @@ public class BikeRentalTests(BikeDataFixture fixture) : IClassFixture<BikeDataFi
     }
 
     /// <summary>
-    /// Вывести статистику времени аренды (мин, макс, среднее).
+    /// Р’С‹РІРµСЃС‚Рё СЃС‚Р°С‚РёСЃС‚РёРєСѓ РІСЂРµРјРµРЅРё Р°СЂРµРЅРґС‹ (РјРёРЅ, РјР°РєСЃ, СЃСЂРµРґРЅРµРµ).
     /// </summary>
     [Fact]
     public void GetRentalStatistics_WhenCalculatingDurations_ReturnsCorrectAggregates()
@@ -73,7 +73,7 @@ public class BikeRentalTests(BikeDataFixture fixture) : IClassFixture<BikeDataFi
     }
 
     /// <summary>
-    /// Вывести суммарное время аренды по типам.
+    /// Р’С‹РІРµСЃС‚Рё СЃСѓРјРјР°СЂРЅРѕРµ РІСЂРµРјСЏ Р°СЂРµРЅРґС‹ РїРѕ С‚РёРїР°Рј.
     /// </summary>
     [Fact]
     public void GetTotalDuration_WhenGroupedByBikeType_ReturnsCorrectSumForMountainAndElectric()
@@ -94,7 +94,7 @@ public class BikeRentalTests(BikeDataFixture fixture) : IClassFixture<BikeDataFi
     }
 
     /// <summary>
-    /// Вывести топ клиентов по количеству аренд.
+    /// Р’С‹РІРµСЃС‚Рё С‚РѕРї РєР»РёРµРЅС‚РѕРІ РїРѕ РєРѕР»РёС‡РµСЃС‚РІСѓ Р°СЂРµРЅРґ.
     /// </summary>
     [Fact]
     public void GetTopRenters_WhenSortedByRentalCount_ReturnsIvanovFirst()
@@ -114,10 +114,10 @@ public class BikeRentalTests(BikeDataFixture fixture) : IClassFixture<BikeDataFi
             })
             .ToList();
 
-        Assert.Equal("Иванов Иван Иванович", topRenters[0].FullName);
+        Assert.Equal("РРІР°РЅРѕРІ РРІР°РЅ РРІР°РЅРѕРІРёС‡", topRenters[0].FullName);
         Assert.Equal(3, topRenters[0].Count);
 
-        Assert.Equal("Петров Петр Петрович", topRenters[1].FullName);
+        Assert.Equal("РџРµС‚СЂРѕРІ РџРµС‚СЂ РџРµС‚СЂРѕРІРёС‡", topRenters[1].FullName);
         Assert.Equal(2, topRenters[1].Count);
     }
 }
