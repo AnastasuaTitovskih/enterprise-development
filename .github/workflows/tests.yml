@@ -1,0 +1,32 @@
+name: Run .NET Tests
+
+on:
+  pull_request:
+    types: [opened, reopened]
+    branches: 
+      - main
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: dotnet restore
+        run: dotnet restore ./BikeRental/BikeRental.sln
+
+      - name: Build solution
+        run: dotnet build ./BikeRental/BikeRental.sln --no-restore
+
+      - name: Run tests
+        run: dotnet test ./BikeRental/BikeRental.Test/BikeRental.Test.csproj --no-build --verbosity detailed
