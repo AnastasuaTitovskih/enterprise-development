@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Aspire.NATS.Net" Version="13.1.1" />
     <PackageReference Include="Aspire.Npgsql.EntityFrameworkCore.PostgreSQL" Version="13.1.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.13">
       <PrivateAssets>all</PrivateAssets>
@@ -19,6 +20,7 @@
   <ItemGroup>
     <ProjectReference Include="..\BikeRental.Application\BikeRental.Application.csproj" />
     <ProjectReference Include="..\BikeRental.Infrastructure.EfCore\BikeRental.Infrastructure.EfCore.csproj" />
+    <ProjectReference Include="..\BikeRental.Infrastructure.Nats\BikeRental.Infrastructure.Nats.csproj" />
     <ProjectReference Include="..\BikeRental.ServiceDefaults\BikeRental.ServiceDefaults.csproj" />
   </ItemGroup>
 

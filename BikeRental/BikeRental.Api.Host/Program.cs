@@ -9,6 +9,7 @@ using BikeRental.Domain;
 using BikeRental.Domain.Model;
 using BikeRental.Infrastructure.EfCore;
 using BikeRental.Infrastructure.EfCore.Repository;
+using BikeRental.Infrastructure.Nats;
 using BikeRental.ServiceDefaults;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;
@@ -56,6 +57,10 @@ builder.Services.AddSwaggerGen(c =>
 });
 
 builder.AddNpgsqlDbContext<BikeRentalDbContext>("DatabaseConnection");
+
+builder.AddNatsClient("nats");
+builder.Services.Configure<NatsConsumerSettings>(builder.Configuration.GetSection("NatsConsumer"));
+builder.Services.AddHostedService<RentalConsumer>();
 
 var app = builder.Build();
 
