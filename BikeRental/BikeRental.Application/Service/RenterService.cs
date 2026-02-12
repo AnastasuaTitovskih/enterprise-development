@@ -9,4 +9,4 @@ namespace BikeRental.Application.Service;
 /// Сервис для управления арендаторами.
 /// </summary>
 public class RenterService(IRepository<Renter, int> repository, IMapper mapper)
-    : BaseApplicationService<Renter, RenterDto, RenterCreateUpdateDto>(repository, mapper) { }
+    : BaseApplicationService<Renter, RenterDto, RenterCreateUpdateDto>(repository, mapper);

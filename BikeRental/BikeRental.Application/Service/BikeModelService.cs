@@ -9,4 +9,4 @@ namespace BikeRental.Application.Service;
 /// Сервис для управления моделями велосипедов.
 /// </summary>
 public class BikeModelService(IRepository<BikeModel, int> repository, IMapper mapper)
-    : BaseApplicationService<BikeModel, BikeModelDto, BikeModelCreateUpdateDto>(repository, mapper) { }
+    : BaseApplicationService<BikeModel, BikeModelDto, BikeModelCreateUpdateDto>(repository, mapper);

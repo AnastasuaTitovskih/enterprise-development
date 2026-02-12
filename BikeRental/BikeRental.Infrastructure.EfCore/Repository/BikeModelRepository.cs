@@ -6,4 +6,4 @@ namespace BikeRental.Infrastructure.EfCore.Repository;
 /// Репозиторий для управления моделями велосипедов.
 /// </summary>
 /// <param name="context">Контекст базы данных.</param>
-public class BikeModelRepository(BikeRentalDbContext context) : BaseRepository<BikeModel>(context) { }
+public class BikeModelRepository(BikeRentalDbContext context) : BaseRepository<BikeModel>(context);
