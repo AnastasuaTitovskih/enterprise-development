@@ -1,4 +1,7 @@
-﻿namespace BikeRental.Domain.Data;
+﻿using BikeRental.Domain.Enum;
+using BikeRental.Domain.Model;
+
+namespace BikeRental.Domain.Data;
 
 /// <summary>
 /// Класс для инициализации тестовых данных.

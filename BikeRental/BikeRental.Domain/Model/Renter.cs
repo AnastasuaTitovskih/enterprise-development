@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace BikeRental.Domain;
+namespace BikeRental.Domain.Model;
 
 /// <summary>
 /// Арендатор (клиент).

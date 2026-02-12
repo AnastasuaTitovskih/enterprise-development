@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace BikeRental.Domain;
+namespace BikeRental.Domain.Model;
 
 /// <summary>
 /// Факт аренды транспортного средства.

@@ -1,5 +1,5 @@
-﻿using BikeRental.Domain;
-using BikeRental.Domain.Data;
+﻿using BikeRental.Domain.Data;
+using BikeRental.Domain.Model;
 
 namespace BikeRental.Test;
 

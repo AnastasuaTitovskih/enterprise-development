@@ -1,4 +1,4 @@
-﻿using BikeRental.Domain;
+﻿using BikeRental.Domain.Enum;
 
 namespace BikeRental.Test;
 

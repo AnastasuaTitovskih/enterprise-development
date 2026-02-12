@@ -1,4 +1,4 @@
-﻿namespace BikeRental.Domain;
+﻿namespace BikeRental.Domain.Enum;
 
 /// <summary>
 /// Тип велосипеда.

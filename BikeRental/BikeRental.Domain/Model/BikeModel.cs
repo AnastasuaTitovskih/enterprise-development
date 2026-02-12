@@ -1,7 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using BikeRental.Domain.Enum;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace BikeRental.Domain;
+namespace BikeRental.Domain.Model;
 
 /// <summary>
 /// Справочник моделей велосипедов.
