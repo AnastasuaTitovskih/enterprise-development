@@ -23,4 +23,8 @@ builder.AddProject<Projects.BikeRental_Api_Host>("bikerental-api-host")
     .WaitFor(bikeRentalDb)
     .WaitFor(nats);
 
+builder.AddProject<Projects.BikeRental_Generator_Nats_Host>("bikerental-generator-nats-host")
+    .WithReference(nats)
+    .WaitFor(nats);
+
 builder.Build().Run();

@@ -9,6 +9,7 @@ using Microsoft.Extensions.Options;
 using NATS.Client.Core;
 using NATS.Client.JetStream;
 using NATS.Client.JetStream.Models;
+using NATS.Client.Serializers.Json;
 using NATS.Net;
 
 namespace BikeRental.Infrastructure.Nats;
@@ -53,7 +54,7 @@ public class RentalConsumer(
 
                 var messages = new List<NatsJSMsg<RentalCreateUpdateDto>>();
 
-                await foreach (var msg in consumer.FetchAsync<RentalCreateUpdateDto>(fetchOpts, cancellationToken: stoppingToken))
+                await foreach (var msg in consumer.FetchAsync(fetchOpts, NatsJsonSerializer<RentalCreateUpdateDto>.Default, cancellationToken: stoppingToken))
                 {
                     if (msg.Data != null)
                     {
@@ -73,7 +74,7 @@ public class RentalConsumer(
             }
             catch (OperationCanceledException)
             {
-                logger.LogWarning("Получение записей об аренде отменено, сервис останавливается.");
+                logger.LogWarning("Получение записей об аренде отменено, сервис RentalConsumer останавливается.");
                 break;
             }
             catch (Exception ex)
@@ -89,6 +90,7 @@ public class RentalConsumer(
         logger.LogInformation("Обработка батча из {Count} сообщений...", messages.Count);
 
         using var scope = serviceProvider.CreateScope();
+
         var rentalService = scope.ServiceProvider.GetRequiredService<IApplicationService<RentalDto, RentalCreateUpdateDto, int>>();
         var bikeService = scope.ServiceProvider.GetRequiredService<IApplicationService<BikeDto, BikeCreateUpdateDto, int>>();
         var renterService = scope.ServiceProvider.GetRequiredService<IApplicationService<RenterDto, RenterCreateUpdateDto, int>>();
@@ -114,7 +116,7 @@ public class RentalConsumer(
             {
                 logger.LogError(ex, "Ошибка при обработке сообщения (Rental). Данные: {@Dto}", msg.Data);
 
-                await msg.NakAsync(delay: TimeSpan.FromSeconds(20), cancellationToken: token);
+                await msg.NakAsync(delay: TimeSpan.FromSeconds(5), cancellationToken: token);
             }
         }
 
